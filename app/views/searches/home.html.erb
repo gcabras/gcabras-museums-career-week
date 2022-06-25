@@ -1,0 +1,11 @@
+<h1 class="text-center">Museums nearby</h1>
+<div class="container" data-controller="searches">
+  <%= form_tag("/", method: "get", remote: true, data: { action: "submit->searches#latlong" }) do %>
+    <%= label_tag(:lat, 'Latitude') %>
+    <%= text_field_tag(:lat, '', data: { searches_target: "lat"}) %>
+    <%= label_tag(:long, 'Longitude') %>
+    <%= text_field_tag(:long, '', data: { searches_target: "long"}) %>
+    <%= submit_tag('Search Museums')%>
+  <% end %>
+  <%= render "museums" %>
+</div>
